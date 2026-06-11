@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeshrutha S | AI Interview Room Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ai-interview-room.css">
+    <style>
+        #galaxy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        body {
+            background: transparent !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="galaxy-canvas"></canvas>
+    <main class="room">
+        <nav class="room-nav">
+            <a href="index.html">Aura Space</a>
+            <span>AI Interview Room</span>
+            <a href="cinematic-liquid-review.html">Previous Demo</a>
+        </nav>
+
+        <section class="interview-stage">
+            <div class="candidate">
+                <p class="availability">Candidate profile loaded</p>
+                <h1>Interview<br>Yeshrutha S</h1>
+                <p class="role">AI & ML Engineer</p>
+                <p class="intro">A portfolio concept where recruiters do not browse sections. They ask questions, and your work answers with evidence.</p>
+            </div>
+
+            <section class="conversation" aria-label="AI interview conversation">
+                <div class="ai-orb" aria-hidden="true">
+                    <span></span>
+                </div>
+
+                <div class="transcript" id="transcript">
+                    <article class="message ai">
+                        <span>AI Interviewer</span>
+                        <p>Welcome. I can summarize Yeshrutha S for internships, AI/ML roles, projects, skills, and contact.</p>
+                    </article>
+                    <article class="message human">
+                        <span>Recruiter</span>
+                        <p id="question-text">Who is Yeshrutha?</p>
+                    </article>
+                    <article class="message ai answer">
+                        <span>Candidate Response</span>
+                        <p id="answer-text">Yeshrutha S is a motivated B.E. CSE-AIML student from East West Institute of Technology, Bengaluru, with hands-on work in Python, Java, web development, SQL, MongoDB, Tableau, Power BI, and practical AI/ML projects.</p>
+                    </article>
+                </div>
+
+                <div class="prompt-strip" aria-label="Interview prompts">
+                    <button data-question="Who is Yeshrutha?" data-answer="Yeshrutha S is a motivated B.E. CSE-AIML student from East West Institute of Technology, Bengaluru, with hands-on work in Python, Java, web development, SQL, MongoDB, Tableau, Power BI, and practical AI/ML projects.">Profile</button>
+                    <button data-question="What AI/ML work has she built?" data-answer="She built AttendX, a real-time face recognition attendance system using OpenCV and deep learning with around 95% recognition accuracy for 50+ users. She also built Laptop Buddy, a predictive maintenance assistant that analyzes telemetry to detect overheating and battery degradation risks.">AI/ML</button>
+                    <button data-question="What is her strongest project?" data-answer="G-care is a strong flagship project: an elder-care monitoring platform with caregiver, guardian, and doctor portals, live vitals, medication tracking, SOS alerts, multilingual voice reminders, smartwatch simulation, reports, React, Zustand, Recharts, Tailwind CSS, and a Node.js API.">Flagship</button>
+                    <button data-question="Does she understand DevOps?" data-answer="Yes. RapidOps shows containerized Java and Python applications, Jenkins CI/CD, Docker, Kubernetes manifests, Prometheus and Grafana observability, SonarQube quality checks, and deployment documentation.">DevOps</button>
+                    <button data-question="How can we contact her?" data-answer="Email: yeshruthagowda@gmail.com. Phone: +91 8660206161. LinkedIn: linkedin.com/in/yeshrutha-s-181463298. GitHub: github.com/yeshrutha.">Contact</button>
+                </div>
+            </section>
+        </section>
+
+        <section class="concept-note">
+            <p>Concept Strength</p>
+            <h2>This turns your portfolio into a conversation.</h2>
+            <span>It is unusual, recruiter-friendly, and still practical because every answer can include project proof, metrics, links, and a direct contact action.</span>
+        </section>
+    </main>
+
+    <script>
+        const questionText = document.getElementById('question-text');
+        const answerText = document.getElementById('answer-text');
+        const buttons = document.querySelectorAll('.prompt-strip button');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                buttons.forEach((item) => item.classList.remove('active'));
+                button.classList.add('active');
+                questionText.textContent = button.dataset.question;
+                answerText.textContent = button.dataset.answer;
+                answerText.animate(
+                    [
+                        { opacity: 0, transform: 'translateY(10px)' },
+                        { opacity: 1, transform: 'translateY(0)' }
+                    ],
+                    { duration: 280, easing: 'ease-out' }
+                );
+            });
+        });
+
+        buttons[0].classList.add('active');
+    </script>
+    <script src="script.js?v=1.1.5"></script>
+</body>
+</html>

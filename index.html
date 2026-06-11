@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeshrutha S | Aura Space Portfolio</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Aura Space - Premium, galaxy-inspired portfolio of Yeshrutha S, an AI/ML Engineer specializing in predictive systems, machine learning, and secure cryptography.">
+    <meta name="keywords" content="Yeshrutha S, AI Engineer, ML Engineer, Portfolio, Computer Science, G-care, AttendX, Deep Learning, Computer Vision, DevOps, Bengaluru">
+    <meta name="author" content="Yeshrutha S">
+    
+    <!-- Google Fonts: Outfit (titles) & Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Devicon CSS CDN (Tech Brand Logos) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
+
+    <!-- Space Particle Starfield Background -->
+    <canvas id="galaxy-canvas"></canvas>
+    
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Floating Glass Capsule Navbar -->
+    <header class="navbar-capsule">
+        <div class="navbar-container">
+            <a href="#home" class="logo">
+                <div class="logo-avatar">Y</div>
+                <span class="logo-name">Yeshrutha(Yeshu)</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#contact" class="nav-link btn-contact-nav">Contact</a>
+            </nav>
+
+            <div class="nav-socials">
+                <a href="https://github.com/yeshrutha" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/yeshrutha-s-181463298" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu-drawer">
+        <nav class="mobile-nav-links">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#skills" class="mobile-nav-link">Skills</a>
+            <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="#timeline" class="mobile-nav-link">Timeline</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Content Container -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="welcome-badge reveal">
+                        <i data-lucide="sparkles" class="badge-icon"></i>
+                        <span>AI/ML Engineer &bull; Computer Engineer &bull; Web Developer</span>
+                    </div>
+                    
+                    <div class="hero-title-block reveal">
+                        <h1 class="hero-title">
+                            Hi, I'm <br>
+                            <span class="gradient-text">Yeshrutha S</span>
+                        </h1>
+                        <div class="hero-avatar-wrapper">
+                            <img src="profile.png" alt="Yeshrutha S" class="hero-avatar-img">
+                            <div class="hero-avatar-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <p class="hero-description reveal">
+                        Building production-ready AI systems, intelligent assistants, and ML-driven applications.
+                    </p>
+                    
+                    <div class="hero-actions reveal">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View Projects</span>
+                        </a>
+                        <a href="Yeshrutha Resume.pdf" download="Yeshrutha_S_Resume.pdf" class="btn btn-secondary">
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-signal-strip reveal" aria-label="Portfolio highlights">
+                        <span><strong>8.0</strong> CGPA</span>
+                        <span><strong>5+</strong> AI/ML Projects</span>
+                    </div>
+                </div>
+                
+                <!-- Interactive Neural Network Visual Column -->
+                <div class="hero-visual reveal">
+                    <div class="canvas-visual-container">
+                        <canvas id="neural-canvas"></canvas>
+                        
+                        <!-- Concentric Orbit Tracks with Tech Icons -->
+                        <div class="orbit-track track-1">
+                            <div class="orbit-positioner node-1-1">
+                                <div class="orbit-node">
+                                    <i class="devicon-python-plain colored"></i>
+                                    <span class="tooltip-text">Python</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-1-2">
+                                <div class="orbit-node">
+                                    <i class="devicon-numpy-plain colored"></i>
+                                    <span class="tooltip-text">NumPy</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-1-3">
+                                <div class="orbit-node">
+                                    <i class="devicon-java-plain colored"></i>
+                                    <span class="tooltip-text">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orbit-track track-2">
+                            <div class="orbit-positioner node-2-1">
+                                <div class="orbit-node">
+                                    <i class="devicon-scikitlearn-plain colored"></i>
+                                    <span class="tooltip-text">Scikit-learn</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-2-2">
+                                <div class="orbit-node">
+                                    <i class="devicon-pandas-plain colored"></i>
+                                    <span class="tooltip-text">Pandas</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-2-3">
+                                <div class="orbit-node">
+                                    <i class="devicon-opencv-plain colored"></i>
+                                    <span class="tooltip-text">OpenCV</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-2-4">
+                                <div class="orbit-node">
+                                    <i class="devicon-mysql-plain colored"></i>
+                                    <span class="tooltip-text">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orbit-track track-3">
+                            <div class="orbit-positioner node-3-1">
+                                <div class="orbit-node">
+                                    <i class="devicon-docker-plain colored"></i>
+                                    <span class="tooltip-text">Docker</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-3-2">
+                                <div class="orbit-node">
+                                    <i class="devicon-kubernetes-plain colored"></i>
+                                    <span class="tooltip-text">Kubernetes</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-3-3">
+                                <div class="orbit-node">
+                                    <i class="devicon-pytorch-original colored"></i>
+                                    <span class="tooltip-text">PyTorch</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-3-4">
+                                <div class="orbit-node">
+                                    <i class="devicon-git-plain colored"></i>
+                                    <span class="tooltip-text">Git</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-3-5">
+                                <div class="orbit-node">
+                                    <i class="devicon-mongodb-plain colored"></i>
+                                    <span class="tooltip-text">MongoDB</span>
+                                </div>
+                            </div>
+                            <div class="orbit-positioner node-3-6">
+                                <div class="orbit-node">
+                                    <svg viewBox="0 0 512 512" style="width: 1em; height: 1em; fill: #e97627; display: inline-block; vertical-align: middle;">
+                                        <path d="M242.69,340.3h26.62V267.7h67V241.88h-67v-72.6H242.69v72.6H176.54V267.7h66.15Z"/>
+                                        <path d="M119.26,445.18h22.59V380.64h59.7V360.47h-59.7V295.13H119.26v65.34H59.56v20.17h59.7Z"/>
+                                        <path d="M370.15,212h22.59V147.5h60.5V128.13h-60.5V62.79H370.15v65.34h-59.7V147.5h59.7Z"/>
+                                        <path d="M246.72,496h19.36V450h41.15V433.08H266.08v-46H246.72v46H206.39V450h40.33Z"/>
+                                        <path d="M120.07,212h21V146.69h60.51V128.13H141V62.79h-21v65.34H59.56v18.56h60.51Z"/>
+                                        <path d="M435.72,308.84h19.36V263.66H496V245.92H455.08V200.74H435.72v45.18H395.39v17.74h40.33Z"/>
+                                        <path fill-rule="evenodd" d="M370.15,445.18h22.59V380.64h60.5V360.47h-60.5V295.13H370.15v65.34h-59.7v20.17h59.7Z"/>
+                                        <path d="M307,74.08V60.37H266.66V16H252.14V60.37H211.81V74.08h40.33v44.37h14.52V74.08ZM56.11,305.61H70.63V261.24H111V247.53H70.63V204H56.11v43.56H16v14.52L56.11,262Z"/>
+                                    </svg>
+                                    <span class="tooltip-text">Tableau</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-down-indicator">
+                <span>Scroll Down</span>
+                <i data-lucide="chevron-down" class="bounce-anim"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-card glass-panel scroll-reveal">
+                    <div class="card-glow"></div>
+                    <div class="about-summary">
+                        <i data-lucide="quote" class="quote-icon"></i>
+                        <p class="summary-text">
+                            Driven Computer Science (AI & ML) student skilled in Python, C, Java, databases (SQL, MongoDB), and web development. Proficient in data visualization using Tableau and Power BI. Seeking to build efficient solutions and contribute to real-world AI/ML projects.
+                        </p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">3rd</span>
+                            <span class="stat-label">Year B.E. (CSE-AIML)</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">8.0</span>
+                            <span class="stat-label">Current CGPA</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Core Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="focus-grid">
+                    <article class="focus-card glass-panel scroll-reveal">
+                        <i data-lucide="brain-circuit"></i>
+                        <h3>Intelligent Systems</h3>
+                        <p>Machine learning workflows, exploratory analysis, predictive models, and decision-support assistants.</p>
+                    </article>
+                    <article class="focus-card glass-panel scroll-reveal">
+                        <i data-lucide="activity"></i>
+                        <h3>Real-Time Monitoring</h3>
+                        <p>Live vitals, system telemetry, alarms, reporting dashboards, and practical automation flows.</p>
+                    </article>
+                    <article class="focus-card glass-panel scroll-reveal">
+                        <i data-lucide="shield-check"></i>
+                        <h3>Secure Engineering</h3>
+                        <p>Encrypted data search, client-side decryption, authentication, and privacy-aware system design.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section (Floating Technology Badge Rows) -->
+        <section id="skills" class="skills-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Concentric Tech Cloud Container -->
+            <div class="skills-constellation">
+                <canvas id="skills-canvas"></canvas>
+                
+                <!-- Row 1: Languages & Core -->
+                <div class="skills-row row-1 scroll-reveal" aria-label="Core Programming languages">
+                    <div class="tech-capsule float-1">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-capsule float-2">
+                        <i class="devicon-java-plain colored"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="tech-capsule float-3">
+                        <svg viewBox="0 0 100 100" style="width: 1em; height: 1em; display: inline-block; vertical-align: middle; margin-right: 4px;">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#00f2fe" stroke-width="6" style="filter: drop-shadow(0 0 4px #00f2fe);"/>
+                            <text x="50%" y="54%" font-family="Outfit, sans-serif" font-weight="800" font-size="46" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">C</text>
+                        </svg>
+                        <span>C</span>
+                    </div>
+                    <div class="tech-capsule float-4">
+                        <i class="devicon-html5-plain colored"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-capsule float-1">
+                        <i class="devicon-css3-plain colored"></i>
+                        <span>CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: AI / ML Stack -->
+                <div class="skills-row row-2 scroll-reveal" aria-label="AI and Machine Learning libraries">
+                    <div class="tech-capsule float-3">
+                        <i class="devicon-scikitlearn-plain colored"></i>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <div class="tech-capsule float-2">
+                        <i class="devicon-numpy-plain colored"></i>
+                        <span>NumPy</span>
+                    </div>
+                    <div class="tech-capsule float-4">
+                        <i class="devicon-pandas-plain colored"></i>
+                        <span>Pandas</span>
+                    </div>
+                    <div class="tech-capsule float-1">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>Data Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Row 3: Databases & DevOps Infrastructure -->
+                <div class="skills-row row-3 scroll-reveal" aria-label="Databases and DevOps tools">
+                    <div class="tech-capsule float-2">
+                        <i class="devicon-mysql-plain colored"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="tech-capsule float-3">
+                        <i class="devicon-mongodb-plain colored"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tech-capsule float-1">
+                        <i class="devicon-docker-plain colored"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-capsule float-4">
+                        <i class="devicon-kubernetes-plain colored"></i>
+                        <span>Kubernetes</span>
+                    </div>
+                    <div class="tech-capsule float-2">
+                        <i class="devicon-git-plain colored"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+
+                <!-- Row 4: Visualization & Pipeline tools -->
+                <div class="skills-row row-4 scroll-reveal" aria-label="Visualization and other development tools">
+                    <div class="tech-capsule float-4">
+                        <svg viewBox="0 0 512 512" style="width: 1.1em; height: 1.1em; fill: #e97627; display: inline-block; vertical-align: middle; margin-right: 8px;">
+                            <path d="M242.69,340.3h26.62V267.7h67V241.88h-67v-72.6H242.69v72.6H176.54V267.7h66.15Z"/>
+                            <path d="M119.26,445.18h22.59V380.64h59.7V360.47h-59.7V295.13H119.26v65.34H59.56v20.17h59.7Z"/>
+                            <path d="M370.15,212h22.59V147.5h60.5V128.13h-60.5V62.79H370.15v65.34h-59.7V147.5h59.7Z"/>
+                            <path d="M246.72,496h19.36V450h41.15V433.08H266.08v-46H246.72v46H206.39V450h40.33Z"/>
+                            <path d="M120.07,212h21V146.69h60.51V128.13H141V62.79h-21v65.34H59.56v18.56h60.51Z"/>
+                            <path d="M435.72,308.84h19.36V263.66H496V245.92H455.08V200.74H435.72v45.18H395.39v17.74h40.33Z"/>
+                            <path fill-rule="evenodd" d="M370.15,445.18h22.59V380.64h60.5V360.47h-60.5V295.13H370.15v65.34h-59.7v20.17h59.7Z"/>
+                            <path d="M307,74.08V60.37H266.66V16H252.14V60.37H211.81V74.08h40.33v44.37h14.52V74.08ZM56.11,305.61H70.63V261.24H111V247.53H70.63V204H56.11v43.56H16v14.52L56.11,262Z"/>
+                        </svg>
+                        <span>Tableau</span>
+                    </div>
+                    <div class="tech-capsule float-1">
+                        <i class="devicon-powerbi-plain colored"></i>
+                        <span>Power BI</span>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="projects-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Projects Showcase</h2>
+                <p class="section-subtitle">Advanced machine learning apps, automated operations pipelines, and cyber security nodes.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Projects Filter Bar -->
+            <div class="projects-filter-container scroll-reveal">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+                <button class="filter-btn" data-filter="devops">DevOps</button>
+                <button class="filter-btn" data-filter="cyber-security">Cyber Security</button>
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- Project 1: G-care -->
+                <div class="project-cosmic-card glass-panel scroll-reveal" data-domain="ai-ml">
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="project-placeholder-icon">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-badge">Healthcare</span>
+                            <span class="project-tech">React &bull; Node.js</span>
+                        </div>
+                        <h3 class="project-title">G-care - AI Elder Care Monitoring</h3>
+                        <p class="project-text">
+                            An elder-care monitoring platform with caregiver, guardian, and doctor portals. Tracks live vitals, smartwatch simulation, SOS alarms, and charts.
+                        </p>
+                        <div class="project-tags-list">
+                            <span>Zustand</span>
+                            <span>Recharts</span>
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yeshrutha/G_care" target="_blank" rel="noopener noreferrer" class="proj-link"><i data-lucide="github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: AttendX -->
+                <div class="project-cosmic-card glass-panel scroll-reveal" data-domain="ai-ml">
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="project-placeholder-icon">
+                            <i data-lucide="scan-face"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-badge">Computer Vision</span>
+                            <span class="project-tech">OpenCV &bull; Python</span>
+                        </div>
+                        <h3 class="project-title">AttendX - Smart Attendance System</h3>
+                        <p class="project-text">
+                            Real-time face recognition attendance system achieving ~95% accuracy. Automates attendance logging for 50+ users and reduces manual overhead.
+                        </p>
+                        <div class="project-tags-list">
+                            <span>Deep Learning</span>
+                            <span>OpenCV</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VishwaMohan7/attendance" target="_blank" rel="noopener noreferrer" class="proj-link"><i data-lucide="github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Laptop_buddy -->
+                <div class="project-cosmic-card glass-panel scroll-reveal" data-domain="ai-ml">
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="project-placeholder-icon">
+                            <i data-lucide="monitor-cog"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-badge">ML Telemetry</span>
+                            <span class="project-tech">PyQt5 &bull; Scikit-learn</span>
+                        </div>
+                        <h3 class="project-title">Laptop Buddy - Predictive Assistant</h3>
+                        <p class="project-text">
+                            Predictive laptop health assistant that analyzes real-time system telemetry to detect risk patterns and recommend preventive actions.
+                        </p>
+                        <div class="project-tags-list">
+                            <span>Telemetry</span>
+                            <span>PyQt5</span>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VishwaMohan7/laptop_buddy" target="_blank" rel="noopener noreferrer" class="proj-link"><i data-lucide="github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: RapidOps -->
+                <div class="project-cosmic-card glass-panel scroll-reveal" data-domain="devops">
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="project-placeholder-icon">
+                            <i data-lucide="terminal"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-badge">DevOps Pipeline</span>
+                            <span class="project-tech">Docker &bull; Kubernetes</span>
+                        </div>
+                        <h3 class="project-title">RapidOps - Automated Pipeline</h3>
+                        <p class="project-text">
+                            Full-stack pipeline featuring containerized apps, CI/CD via Jenkins, and Kubernetes deployment with Grafana/Prometheus observability.
+                        </p>
+                        <div class="project-tags-list">
+                            <span>Prometheus</span>
+                            <span>SonarQube</span>
+                            <span>Jenkins</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yeshrutha/RapidOps" target="_blank" rel="noopener noreferrer" class="proj-link"><i data-lucide="github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Searchable Encryption -->
+                <div class="project-cosmic-card glass-panel scroll-reveal" data-domain="cyber-security">
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="project-placeholder-icon">
+                            <i data-lucide="shield-alert"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-badge">Cybersecurity</span>
+                            <span class="project-tech">Cryptography &bull; Python</span>
+                        </div>
+                        <h3 class="project-title">Encrypto : Secure String Matching on Encrypted Data</h3>
+                        <p class="project-text">
+                            Privacy-preserving searchable encryption system enabling keyword searches over encrypted files without exposing plaintext to third-party hosts.
+                        </p>
+                        <div class="project-tags-list">
+                            <span>Encryption</span>
+                            <span>Security</span>
+                            <span>Client-Side</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/VishwaMohan7/Encrypto-secure-search-on-encrypted-data" target="_blank" rel="noopener noreferrer" class="proj-link"><i data-lucide="github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Timeline Section (Single-line Cosmic Milestone Trail) -->
+        <section id="timeline" class="timeline-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Education & Milestones</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="timeline-cosmic">
+                <div class="timeline-trail"></div>
+                
+                <!-- Education 1 -->
+                <div class="timeline-item glass-panel scroll-reveal">
+                    <div class="timeline-marker"><i data-lucide="graduation-cap"></i></div>
+                    <span class="timeline-date">3rd Year Student</span>
+                    <h3 class="timeline-title">B.E. in Computer Science Engineering (AIML)</h3>
+                    <h4 class="timeline-institution">East West Institute of Technology, Bengaluru</h4>
+                    <p class="timeline-details">Focusing on predictive model optimization, artificial neural nets, database design, and exploratory analysis. CGPA: 8.0</p>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="timeline-item glass-panel scroll-reveal">
+                    <div class="timeline-marker"><i data-lucide="award"></i></div>
+                    <span class="timeline-date">Certifications</span>
+                    <h3 class="timeline-title">Professional Training & Certs</h3>
+                    <ul class="timeline-list">
+                        <li><strong>Ethnotech Academy:</strong> Advanced Java, Data Science, Web Dev, DevOps, Networks.</li>
+                        <li><strong>Infosys Springboard:</strong> HTML, CSS, JavaScript, and decision trees using Python.</li>
+                    </ul>
+                </div>
+
+                <!-- Achievements -->
+                <div class="timeline-item glass-panel scroll-reveal">
+                    <div class="timeline-marker"><i data-lucide="trophy"></i></div>
+                    <span class="timeline-date">Activities</span>
+                    <h3 class="timeline-title">Hackathons & Coding Competitions</h3>
+                    <p class="timeline-details">Active participant in collaborative coding events:</p>
+                    <div class="events-badges">
+                        <span class="event-badge">Hack-A-League 4.0</span>
+                        <span class="event-badge">ADVAYA 2.0</span>
+                        <span class="event-badge">CODE CLASH</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Connect With Me</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Simple and Elegant Contact Grid -->
+            <div class="contact-grid">
+                
+                <!-- Email Card -->
+                <a href="mailto:yeshruthagowda@gmail.com" class="contact-card glass-panel scroll-reveal">
+                    <div class="contact-card-icon"><i data-lucide="mail"></i></div>
+                    <div class="contact-card-info">
+                        <span class="contact-card-label">Email</span>
+                        <span class="contact-card-value">yeshruthagowda@gmail.com</span>
+                    </div>
+                    <div class="contact-card-arrow"><i data-lucide="arrow-right"></i></div>
+                </a>
+
+                <!-- LinkedIn Card -->
+                <a href="https://www.linkedin.com/in/yeshrutha-s-181463298" target="_blank" rel="noopener noreferrer" class="contact-card glass-panel scroll-reveal">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </div>
+                    <div class="contact-card-info">
+                        <span class="contact-card-label">LinkedIn</span>
+                        <span class="contact-card-value">linkedin.com/in/yeshrutha-s-181463298</span>
+                    </div>
+                    <div class="contact-card-arrow"><i data-lucide="arrow-right"></i></div>
+                </a>
+
+                <!-- GitHub Card -->
+                <a href="https://github.com/yeshrutha" target="_blank" rel="noopener noreferrer" class="contact-card glass-panel scroll-reveal">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                    <div class="contact-card-info">
+                        <span class="contact-card-label">GitHub</span>
+                        <span class="contact-card-value">github.com/yeshrutha</span>
+                    </div>
+                    <div class="contact-card-arrow"><i data-lucide="arrow-right"></i></div>
+                </a>
+
+                <!-- Phone Card -->
+                <a href="tel:+918660206161" class="contact-card glass-panel scroll-reveal">
+                    <div class="contact-card-icon"><i data-lucide="phone"></i></div>
+                    <div class="contact-card-info">
+                        <span class="contact-card-label">Phone</span>
+                        <span class="contact-card-value">+91 8660206161</span>
+                    </div>
+                    <div class="contact-card-arrow"><i data-lucide="arrow-right"></i></div>
+                </a>
+
+                <!-- Location Card (Static) -->
+                <div class="contact-card span-2 glass-panel scroll-reveal">
+                    <div class="contact-card-icon"><i data-lucide="map-pin"></i></div>
+                    <div class="contact-card-info">
+                        <span class="contact-card-label">Location</span>
+                        <span class="contact-card-value">Bengaluru, Karnataka, India</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Yeshrutha S.</p>
+            <div class="footer-meta">
+                <a href="#home">Back to Top <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js?v=1.1.5"></script>
+</body>
+</html>

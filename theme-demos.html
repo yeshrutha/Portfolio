@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeshrutha S | Portfolio Theme Demos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme-demos.css">
+    <style>
+        #galaxy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        body {
+            background: transparent !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="galaxy-canvas"></canvas>
+    <main class="demo-shell">
+        <header class="demo-header">
+            <a href="index.html" class="back-link">Back to Aura Space</a>
+            <div>
+                <p class="eyebrow">Theme Review Board</p>
+                <h1>Choose the next visual identity for Yeshrutha S</h1>
+                <p class="intro">Five different portfolio directions, mocked as first-screen previews with matching skills, project cards, and contact styling.</p>
+            </div>
+        </header>
+
+        <section class="theme-grid" aria-label="Portfolio theme demos">
+            <article class="theme-card neural">
+                <div class="theme-nav">
+                    <span>YS Neural Lab</span>
+                    <div><b></b><b></b><b></b></div>
+                </div>
+                <div class="theme-hero">
+                    <p>AI/ML Engineer</p>
+                    <h2>Building intelligent systems from clean data signals.</h2>
+                    <span class="theme-button">Explore Models</span>
+                </div>
+                <div class="neural-net" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="theme-panel-row">
+                    <span>Python</span><span>Scikit-learn</span><span>EDA</span>
+                </div>
+                <p class="theme-note">Best for a professional AI researcher feel: precise, credible, and modern.</p>
+            </article>
+
+            <article class="theme-card cyber">
+                <div class="theme-nav">
+                    <span>CYBER_YESHRUTHA</span>
+                    <div><b></b><b></b><b></b></div>
+                </div>
+                <div class="terminal-window">
+                    <p>$ train --portfolio yeshrutha</p>
+                    <p class="green">status: model ready</p>
+                    <p>projects: G-care, AttendX, RapidOps</p>
+                </div>
+                <div class="theme-hero">
+                    <p>AI + DevOps + Secure Systems</p>
+                    <h2>Sharp, fast, technical, and recruitment-ready.</h2>
+                    <span class="theme-button">Run Showcase</span>
+                </div>
+                <p class="theme-note">Best for a bold technical brand with hacker-style microinteractions.</p>
+            </article>
+
+            <article class="theme-card glass">
+                <div class="theme-nav">
+                    <span>Aura Cloud</span>
+                    <div><b></b><b></b><b></b></div>
+                </div>
+                <div class="floating-dashboard">
+                    <span>CGPA 8.0</span>
+                    <span>5+ Projects</span>
+                    <span>ML + BI</span>
+                </div>
+                <div class="theme-hero">
+                    <p>Elegant AI Portfolio</p>
+                    <h2>Soft premium visuals with polished glass dashboards.</h2>
+                    <span class="theme-button">View Profile</span>
+                </div>
+                <p class="theme-note">Best if you want futuristic but lighter, calm, and elegant.</p>
+            </article>
+
+            <article class="theme-card notebook">
+                <div class="theme-nav">
+                    <span>Research Notes</span>
+                    <div><b></b><b></b><b></b></div>
+                </div>
+                <div class="paper-stack">
+                    <p>Experiment 01</p>
+                    <h2>Face recognition attendance: ~95% accuracy</h2>
+                    <code>model.fit(X_train, y_train)</code>
+                </div>
+                <div class="theme-panel-row">
+                    <span>Dataset</span><span>Metrics</span><span>Results</span>
+                </div>
+                <p class="theme-note">Best for ML internships: academic, readable, and evidence-driven.</p>
+            </article>
+
+            <article class="theme-card holo featured">
+                <div class="theme-nav">
+                    <span>Holo Command</span>
+                    <div><b></b><b></b><b></b></div>
+                </div>
+                <div class="radar" aria-hidden="true"><span></span></div>
+                <div class="theme-hero">
+                    <p>Recommended</p>
+                    <h2>A portfolio as a live AI operations dashboard.</h2>
+                    <span class="theme-button">Launch Identity</span>
+                </div>
+                <div class="theme-panel-row">
+                    <span>Vitals</span><span>Vision</span><span>CI/CD</span>
+                </div>
+                <p class="theme-note">Best match for your projects because G-care, AttendX, Laptop Buddy, and RapidOps all feel like live systems.</p>
+            </article>
+        </section>
+    </main>
+    <script src="script.js?v=1.1.5"></script>
+</body>
+</html>
