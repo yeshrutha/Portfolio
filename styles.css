@@ -591,6 +591,12 @@ button {
     animation: orbit-spin-clockwise 50s linear infinite;
 }
 
+.track-4 {
+    width: 500px;
+    height: 500px;
+    animation: orbit-spin-counter 70s linear infinite;
+}
+
 /* Positioner holds the nodes at precise track offsets, keeping them centered on the path and upright */
 .orbit-positioner {
     position: absolute;
@@ -622,6 +628,16 @@ button {
 .node-3-4 { top: 100%; left: 50%; }
 .node-3-5 { top: 75%; left: 6.7%; }
 .node-3-6 { top: 25%; left: 6.7%; }
+
+/* Track 4 (8 nodes - Octagon: 0deg, 45deg, 90deg, 135deg, 180deg, 225deg, 270deg, 315deg) */
+.node-4-1 { top: 0%; left: 50%; }
+.node-4-2 { top: 14.6%; left: 85.4%; }
+.node-4-3 { top: 50%; left: 100%; }
+.node-4-4 { top: 85.4%; left: 85.4%; }
+.node-4-5 { top: 100%; left: 50%; }
+.node-4-6 { top: 85.4%; left: 14.6%; }
+.node-4-7 { top: 50%; left: 0%; }
+.node-4-8 { top: 14.6%; left: 14.6%; }
 
 /* Orbit Node styling (Slightly larger than medium: 52x52px, interactive state, and relative position) */
 .orbit-node {
@@ -722,6 +738,10 @@ button {
 
 .track-3 .orbit-positioner {
     animation: counter-rotate-clockwise 50s linear infinite;
+}
+
+.track-4 .orbit-positioner {
+    animation: counter-rotate-counter 70s linear infinite;
 }
 
 .scroll-down-indicator {
@@ -1778,6 +1798,10 @@ section {
         font-size: 15px;
     }
     
+    .canvas-visual-container {
+        transform: scale(0.8);
+    }
+    
     .navbar-capsule {
         border-radius: 20px;
         top: 10px;
@@ -1874,6 +1898,7 @@ section {
     .canvas-visual-container {
         width: 300px;
         height: 300px;
+        transform: scale(0.65);
     }
 
     .timeline-cosmic {
