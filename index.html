@@ -45,6 +45,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certs" class="nav-link">Certificates</a>
                 <a href="#timeline" class="nav-link">Timeline</a>
                 <a href="#contact" class="nav-link btn-contact-nav">Contact</a>
             </nav>
@@ -70,6 +71,7 @@
             <a href="#about" class="mobile-nav-link">About</a>
             <a href="#skills" class="mobile-nav-link">Skills</a>
             <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="#certs" class="mobile-nav-link">Certificates</a>
             <a href="#timeline" class="mobile-nav-link">Timeline</a>
             <a href="#contact" class="mobile-nav-link">Contact</a>
         </nav>
@@ -92,10 +94,6 @@
                             Hi, I'm <br>
                             <span class="gradient-text">Yeshrutha S</span>
                         </h1>
-                        <div class="hero-avatar-wrapper">
-                            <img src="profile.png" alt="Yeshrutha S" class="hero-avatar-img">
-                            <div class="hero-avatar-glow"></div>
-                        </div>
                     </div>
                     
                     <p class="hero-description reveal">
@@ -234,12 +232,21 @@
             </div>
             
             <div class="about-container">
+                <!-- Avatar Image Card -->
+                <div class="about-avatar-card glass-panel scroll-reveal">
+                    <div class="card-glow"></div>
+                    <div class="about-avatar-wrapper">
+                        <img src="profile.png" alt="Yeshrutha S" class="about-avatar-img">
+                        <div class="about-avatar-glow"></div>
+                    </div>
+                </div>
+
                 <div class="about-card glass-panel scroll-reveal">
                     <div class="card-glow"></div>
                     <div class="about-summary">
                         <i data-lucide="quote" class="quote-icon"></i>
                         <p class="summary-text">
-                            Driven Computer Science (AI & ML) student skilled in Python, C, Java, databases (SQL, MongoDB), and web development. Proficient in data visualization using Tableau and Power BI. Seeking to build efficient solutions and contribute to real-world AI/ML projects.
+                            B.E Computer Science Engineering (AIML) student with demonstrated proficiency in AI/ML development, full-stack applications, cybersecurity analysis, and DevOps solutions. Hands-on expertise in Python, JavaScript, SQL, and cloud technologies. Seeking internship opportunities to apply technical skills to enterprise-level projects while contributing to data-driven solutions.
                         </p>
                     </div>
                     
@@ -546,6 +553,245 @@
             </div>
         </section>
 
+        <!-- Certifications & Achievements Section -->
+        <section id="certs" class="certs-section">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Certifications & Achievements</h2>
+                <p class="section-subtitle">Professional certifications, Forage job simulations, and competitive achievements.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="certs-filter-container scroll-reveal">
+                <button class="cert-filter-btn active" data-filter="all">All</button>
+                <button class="cert-filter-btn" data-filter="certification">Certifications</button>
+                <button class="cert-filter-btn" data-filter="job-simulation">Job Simulations</button>
+                <button class="cert-filter-btn" data-filter="achievement">Achievements</button>
+            </div>
+
+            <!-- Carousel Slider Container -->
+            <div class="carousel-container scroll-reveal">
+                <button class="carousel-arrow prev-btn" aria-label="Previous slide">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="certs-track">
+                        
+                        <!-- Card 1: Data Science Specialization -->
+                        <div class="cert-card glass-panel" data-type="certification">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Certification</span>
+                                <h3 class="cert-title">Data Science Specialization</h3>
+                                <h4 class="cert-org">Ethnotech Academy</h4>
+                                <span class="cert-date">2023 - 2026</span>
+                                <p class="cert-text">Advanced training in Java, Data Science, Web Development, DevOps, and Computer Networks.</p>
+                                <div class="cert-skills">
+                                    <span>Java</span>
+                                    <span>Data Science</span>
+                                    <span>Web Dev</span>
+                                    <span>DevOps</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Web Development Fundamentals -->
+                        <div class="cert-card glass-panel" data-type="certification">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Certification</span>
+                                <h3 class="cert-title">Web Development Fundamentals</h3>
+                                <h4 class="cert-org">Infosys Springboard</h4>
+                                <span class="cert-date">2024</span>
+                                <p class="cert-text">Comprehensive learning of HTML, CSS, JavaScript, and Decision Trees using Python.</p>
+                                <div class="cert-skills">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Python</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Cybersecurity Analyst Job Simulation -->
+                        <div class="cert-card glass-panel" data-type="job-simulation">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Job Simulation</span>
+                                <h3 class="cert-title">Cybersecurity Analyst</h3>
+                                <h4 class="cert-org">Forage</h4>
+                                <span class="cert-date">2026</span>
+                                <p class="cert-text">Completed simulation tasks for identity & access management (IAM), vulnerability assessment, and risk evaluation.</p>
+                                <div class="cert-skills">
+                                    <span>IAM</span>
+                                    <span>Security Analysis</span>
+                                    <span>Risk Assessment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Data Analytics Job Simulation -->
+                        <div class="cert-card glass-panel" data-type="job-simulation">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="bar-chart-2"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Job Simulation</span>
+                                <h3 class="cert-title">Data Analytics</h3>
+                                <h4 class="cert-org">Forage</h4>
+                                <span class="cert-date">2026</span>
+                                <p class="cert-text">Simulated clean-up of raw data, visualization design, and analytical insight reports for business scenarios.</p>
+                                <div class="cert-skills">
+                                    <span>Data Analysis</span>
+                                    <span>Visualizations</span>
+                                    <span>Business Intelligence</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: GenAI Powered Data Analytics Job Simulation -->
+                        <div class="cert-card glass-panel" data-type="job-simulation">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="brain-circuit"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Job Simulation</span>
+                                <h3 class="cert-title">GenAI Powered Data Analytics</h3>
+                                <h4 class="cert-org">Forage</h4>
+                                <span class="cert-date">2026</span>
+                                <p class="cert-text">Applied generative AI models to accelerate data analytics pipelines, prompt engineering, and automated reporting.</p>
+                                <div class="cert-skills">
+                                    <span>Generative AI</span>
+                                    <span>Prompt Engineering</span>
+                                    <span>Data Pipelines</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Project Manager Job Simulation -->
+                        <div class="cert-card glass-panel" data-type="job-simulation">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Job Simulation</span>
+                                <h3 class="cert-title">Project Manager</h3>
+                                <h4 class="cert-org">Forage</h4>
+                                <span class="cert-date">2026</span>
+                                <p class="cert-text">Simulated Agile project planning, resource allocation lists, timeline scheduling, and project health reporting.</p>
+                                <div class="cert-skills">
+                                    <span>Project Planning</span>
+                                    <span>Agile Methods</span>
+                                    <span>Scheduling</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Software Engineering Job Simulation -->
+                        <div class="cert-card glass-panel" data-type="job-simulation">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="terminal"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Job Simulation</span>
+                                <h3 class="cert-title">Software Engineering</h3>
+                                <h4 class="cert-org">Forage</h4>
+                                <span class="cert-date">2026</span>
+                                <p class="cert-text">Completed software design simulations, mock implementations, code refactoring, and unit test developments.</p>
+                                <div class="cert-skills">
+                                    <span>Software Design</span>
+                                    <span>Refactoring</span>
+                                    <span>Unit Testing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 8: Hack-A-League 4.0 -->
+                        <div class="cert-card glass-panel" data-type="achievement">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Achievement</span>
+                                <h3 class="cert-title">Hack-A-League 4.0</h3>
+                                <h4 class="cert-org">Collaborative Hackathon</h4>
+                                <span class="cert-date">Participant</span>
+                                <p class="cert-text">Successfully built prototype solutions collaboratively under a strict time constraint.</p>
+                                <div class="cert-skills">
+                                    <span>Hackathon</span>
+                                    <span>Prototyping</span>
+                                    <span>Teamwork</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 9: ADVAYA 2.0 -->
+                        <div class="cert-card glass-panel" data-type="achievement">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="cpu"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Achievement</span>
+                                <h3 class="cert-title">ADVAYA 2.0</h3>
+                                <h4 class="cert-org">Technical Coding Event</h4>
+                                <span class="cert-date">Participant</span>
+                                <p class="cert-text">Participated and excelled in algorithmic solving, testing logical skills in time-bound programming tests.</p>
+                                <div class="cert-skills">
+                                    <span>Algorithms</span>
+                                    <span>Logic Solving</span>
+                                    <span>Programming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 10: CODE CLASH -->
+                        <div class="cert-card glass-panel" data-type="achievement">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-icon-wrapper">
+                                <i data-lucide="code-2"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-badge">Achievement</span>
+                                <h3 class="cert-title">CODE CLASH</h3>
+                                <h4 class="cert-org">Speed Coding Competition</h4>
+                                <span class="cert-date">Participant</span>
+                                <p class="cert-text">Engaged in rapid coding duels focused on efficiency, debugging speed, and computational logic.</p>
+                                <div class="cert-skills">
+                                    <span>Speed Coding</span>
+                                    <span>Debugging</span>
+                                    <span>Efficiency</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="carousel-arrow next-btn" aria-label="Next slide">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Slide Indicator Dots -->
+            <div class="carousel-dots" id="carousel-dots-container"></div>
+        </section>
+
         <!-- Timeline Section (Single-line Cosmic Milestone Trail) -->
         <section id="timeline" class="timeline-section">
             <div class="section-header scroll-reveal">
@@ -559,34 +805,28 @@
                 <!-- Education 1 -->
                 <div class="timeline-item glass-panel scroll-reveal">
                     <div class="timeline-marker"><i data-lucide="graduation-cap"></i></div>
-                    <span class="timeline-date">3rd Year Student</span>
+                    <span class="timeline-date">2023 - Present</span>
                     <h3 class="timeline-title">B.E. in Computer Science Engineering (AIML)</h3>
                     <h4 class="timeline-institution">East West Institute of Technology, Bengaluru</h4>
-                    <p class="timeline-details">Focusing on predictive model optimization, artificial neural nets, database design, and exploratory analysis. CGPA: 8.0</p>
+                    <p class="timeline-details">Focusing on predictive model optimization, artificial neural nets, database design, and exploratory analysis. Current CGPA: 8.0</p>
                 </div>
                 
-                <!-- Certifications -->
+                <!-- Education 2 -->
                 <div class="timeline-item glass-panel scroll-reveal">
-                    <div class="timeline-marker"><i data-lucide="award"></i></div>
-                    <span class="timeline-date">Certifications</span>
-                    <h3 class="timeline-title">Professional Training & Certs</h3>
-                    <ul class="timeline-list">
-                        <li><strong>Ethnotech Academy:</strong> Advanced Java, Data Science, Web Dev, DevOps, Networks.</li>
-                        <li><strong>Infosys Springboard:</strong> HTML, CSS, JavaScript, and decision trees using Python.</li>
-                    </ul>
+                    <div class="timeline-marker"><i data-lucide="graduation-cap"></i></div>
+                    <span class="timeline-date">2021 - 2023</span>
+                    <h3 class="timeline-title">Pre-University College (PUC)</h3>
+                    <h4 class="timeline-institution">KLE S Nijalingappa PU College, Bengaluru</h4>
+                    <p class="timeline-details">Focused on Physics, Chemistry, Mathematics, and Computer Science. Score achieved: 82%</p>
                 </div>
 
-                <!-- Achievements -->
+                <!-- Education 3 -->
                 <div class="timeline-item glass-panel scroll-reveal">
-                    <div class="timeline-marker"><i data-lucide="trophy"></i></div>
-                    <span class="timeline-date">Activities</span>
-                    <h3 class="timeline-title">Hackathons & Coding Competitions</h3>
-                    <p class="timeline-details">Active participant in collaborative coding events:</p>
-                    <div class="events-badges">
-                        <span class="event-badge">Hack-A-League 4.0</span>
-                        <span class="event-badge">ADVAYA 2.0</span>
-                        <span class="event-badge">CODE CLASH</span>
-                    </div>
+                    <div class="timeline-marker"><i data-lucide="graduation-cap"></i></div>
+                    <span class="timeline-date">Completed 2021</span>
+                    <h3 class="timeline-title">Secondary School Leaving Certificate (SSLC)</h3>
+                    <h4 class="timeline-institution">Mount Senoria School, Bengaluru</h4>
+                    <p class="timeline-details">General high school education with strong core mathematical skills. Score achieved: 87%</p>
                 </div>
             </div>
         </section>

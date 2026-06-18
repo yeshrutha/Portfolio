@@ -1015,4 +1015,150 @@ document.addEventListener('DOMContentLoaded', () => {
         animateSkillsGalaxy();
     }
 
+    // ==========================================================================
+    // 13. CERTIFICATIONS & ACHIEVEMENTS CAROUSEL & FILTERING
+    // ==========================================================================
+    const certFilterButtons = document.querySelectorAll('.cert-filter-btn');
+    const certCards = document.querySelectorAll('.cert-card');
+    const certTrack = document.getElementById('certs-track');
+    const certPrevBtn = document.querySelector('#certs .prev-btn');
+    const certNextBtn = document.querySelector('#certs .next-btn');
+    const certDotsContainer = document.getElementById('carousel-dots-container');
+
+    if (certTrack && certCards.length > 0) {
+        let currentIndex = 0;
+        let visibleCards = [];
+
+        function updateVisibleCards() {
+            visibleCards = Array.from(certCards).filter(card => !card.classList.contains('filtered-out'));
+        }
+
+        function getItemsPerPage() {
+            return window.innerWidth > 768 ? 2 : 1;
+        }
+
+        function getMaxIndex() {
+            const itemsPerPage = getItemsPerPage();
+            return Math.max(0, visibleCards.length - itemsPerPage);
+        }
+
+        function updateCarousel() {
+            updateVisibleCards();
+            const maxIndex = getMaxIndex();
+            
+            // Bounds check
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            }
+
+            // Calculate slide width and translate
+            if (visibleCards.length > 0) {
+                const cardWidth = visibleCards[0].getBoundingClientRect().width;
+                const gap = parseFloat(window.getComputedStyle(certTrack).gap) || 0;
+                const slideWidth = cardWidth + gap;
+                certTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            } else {
+                certTrack.style.transform = `translateX(0)`;
+            }
+
+            // Update disabled status on arrows
+            if (certPrevBtn) certPrevBtn.disabled = currentIndex === 0;
+            if (certNextBtn) certNextBtn.disabled = currentIndex >= maxIndex || visibleCards.length <= getItemsPerPage();
+
+            // Rebuild/update dot indicators
+            updateDots();
+        }
+
+        function updateDots() {
+            if (!certDotsContainer) return;
+            certDotsContainer.innerHTML = '';
+            
+            const itemsPerPage = getItemsPerPage();
+            const totalDots = Math.max(1, visibleCards.length - itemsPerPage + 1);
+            
+            // If all items fit, we don't need dot indicators
+            if (visibleCards.length <= itemsPerPage) return;
+
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('carousel-dot');
+                if (i === currentIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                certDotsContainer.appendChild(dot);
+            }
+        }
+
+        // Filter button click event listeners
+        if (certFilterButtons.length > 0) {
+            certFilterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    certFilterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Filter cards
+                    certCards.forEach(card => {
+                        const cardType = card.getAttribute('data-type');
+                        const isMatch = filterValue === 'all' || cardType === filterValue;
+
+                        if (isMatch) {
+                            card.classList.remove('filtered-out');
+                        } else {
+                            card.classList.add('filtered-out');
+                        }
+                    });
+
+                    // Reset to first slide and update
+                    currentIndex = 0;
+                    certTrack.style.transform = 'translateX(0)';
+                    
+                    // Small delay to let browser reflow layout
+                    setTimeout(() => {
+                        updateCarousel();
+                    }, 50);
+                });
+            });
+        }
+
+        // Navigation arrow listeners
+        if (certPrevBtn) {
+            certPrevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+        }
+
+        if (certNextBtn) {
+            certNextBtn.addEventListener('click', () => {
+                const maxIndex = getMaxIndex();
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+        }
+
+        // Window resize listener
+        window.addEventListener('resize', () => {
+            updateCarousel();
+        });
+
+        // Initialize carousel on load
+        window.addEventListener('load', () => {
+            updateCarousel();
+        });
+        
+        // Also run immediately
+        updateCarousel();
+    }
+
 });
