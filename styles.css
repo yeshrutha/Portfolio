@@ -196,11 +196,21 @@ button {
     box-shadow: 0 0 8px rgba(112, 66, 248, 0.3);
     border: 1.5px solid rgba(255, 255, 255, 0.15);
     transition: var(--transition-fast);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.logo-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .logo:hover .logo-avatar {
     box-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
-    transform: scale(1.05);
+    transform: scale(1.15);
+    border-color: var(--secondary-cyan);
 }
 
 .logo-name {
@@ -441,87 +451,6 @@ button {
 .hero-title-block .hero-title {
     margin-bottom: 0;
 }
-
-.about-avatar-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-.about-avatar-wrapper {
-    position: relative;
-    width: 200px;
-    height: 260px;
-    border-radius: 24px;
-    padding: 4.5px;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-cyan) 100%);
-    box-shadow: 0 0 25px rgba(112, 66, 248, 0.45);
-    animation: avatarFloat 4s ease-in-out infinite alternate;
-    transition: border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-avatar-wrapper:hover {
-    border-radius: 40px 15px 40px 15px; /* morph */
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 0 35px rgba(0, 242, 254, 0.65);
-}
-
-.about-avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-    object-position: center 10%; /* Shift view up so head is not cut off */
-    background-color: var(--bg-dark);
-    display: block;
-    transition: border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-avatar-wrapper:hover .about-avatar-img {
-    border-radius: 36px 11px 36px 11px;
-}
-
-.about-avatar-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes avatarFloat {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-8px);
-    }
-}
-
-@media (max-width: 1024px) {
-    .hero-title-block {
-        justify-content: center;
-        text-align: center;
-    }
-}
-
-@media (max-width: 520px) {
-    .about-avatar-wrapper {
-        width: 145px;
-        height: 188px;
-        padding: 3.5px;
-        border-radius: 18px;
-    }
-    .about-avatar-img {
-        border-radius: 15px;
-    }
-}
-
 .gradient-text {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -895,7 +824,7 @@ section {
 /* 9. ABOUT SECTION */
 .about-container {
     display: grid;
-    grid-template-columns: 280px 1.2fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 32px;
     align-items: stretch;
 }
@@ -2190,4 +2119,91 @@ section {
         width: 38px;
         height: 38px;
     }
+}
+
+/* 14. PROFILE MODAL LIGHTBOX (WHATSAPP/INSTAGRAM STYLE) */
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.profile-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 0, 20, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.profile-modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+.profile-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--secondary-cyan);
+    transform: scale(1.05);
+}
+
+.profile-modal-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+}
+
+.profile-modal.active .profile-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.profile-modal-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 24px;
+    border: 2px solid rgba(112, 66, 248, 0.3);
+    box-shadow: 0 20px 50px rgba(112, 66, 248, 0.3);
+    object-fit: contain;
+    background: var(--bg-dark);
 }

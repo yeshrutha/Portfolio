@@ -1161,4 +1161,42 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
 
+    // ==========================================================================
+    // 14. PROFILE PIC LIGHTBOX MODAL (WhatsApp/Instagram Style)
+    // ==========================================================================
+    const profileAvatar = document.getElementById('navbar-profile-avatar');
+    const profileModal = document.getElementById('profile-modal');
+    const profileModalClose = document.querySelector('.profile-modal-close');
+    const profileModalBackdrop = document.querySelector('.profile-modal-backdrop');
+
+    if (profileAvatar && profileModal) {
+        profileAvatar.addEventListener('click', (e) => {
+            e.preventDefault();
+            profileModal.classList.add('active');
+            profileModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+            
+            // Re-initialize Lucide icons in case close button needs rendering
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        const closeModal = () => {
+            profileModal.classList.remove('active');
+            profileModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // restore scrolling
+        };
+
+        if (profileModalClose) profileModalClose.addEventListener('click', closeModal);
+        if (profileModalBackdrop) profileModalBackdrop.addEventListener('click', closeModal);
+
+        // Close on ESC key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && profileModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
 });

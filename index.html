@@ -36,7 +36,9 @@
     <header class="navbar-capsule">
         <div class="navbar-container">
             <a href="#home" class="logo">
-                <div class="logo-avatar">Y</div>
+                <div class="logo-avatar" id="navbar-profile-avatar">
+                    <img src="profile.png" alt="Yeshrutha S">
+                </div>
                 <span class="logo-name">Yeshrutha(Yeshu)</span>
             </a>
             
@@ -232,15 +234,6 @@
             </div>
             
             <div class="about-container">
-                <!-- Avatar Image Card -->
-                <div class="about-avatar-card glass-panel scroll-reveal">
-                    <div class="card-glow"></div>
-                    <div class="about-avatar-wrapper">
-                        <img src="profile.png" alt="Yeshrutha S" class="about-avatar-img">
-                        <div class="about-avatar-glow"></div>
-                    </div>
-                </div>
-
                 <div class="about-card glass-panel scroll-reveal">
                     <div class="card-glow"></div>
                     <div class="about-summary">
@@ -731,11 +724,11 @@
                                 <h3 class="cert-title">Hack-A-League 4.0</h3>
                                 <h4 class="cert-org">Collaborative Hackathon</h4>
                                 <span class="cert-date">Participant</span>
-                                <p class="cert-text">Successfully built prototype solutions collaboratively under a strict time constraint.</p>
+                                <p class="cert-text">Designed and proposed a secure system to provide securable string matching without exposing plaintext or leaking encrypted data.</p>
                                 <div class="cert-skills">
-                                    <span>Hackathon</span>
-                                    <span>Prototyping</span>
-                                    <span>Teamwork</span>
+                                    <span>String Matching</span>
+                                    <span>Cryptography</span>
+                                    <span>Privacy</span>
                                 </div>
                             </div>
                         </div>
@@ -751,11 +744,11 @@
                                 <h3 class="cert-title">ADVAYA 2.0</h3>
                                 <h4 class="cert-org">Technical Coding Event</h4>
                                 <span class="cert-date">Participant</span>
-                                <p class="cert-text">Participated and excelled in algorithmic solving, testing logical skills in time-bound programming tests.</p>
+                                <p class="cert-text">Designed and developed a specialized hardware/software prototype aiming to assist elder independence, well-being, and automated health monitoring.</p>
                                 <div class="cert-skills">
-                                    <span>Algorithms</span>
-                                    <span>Logic Solving</span>
-                                    <span>Programming</span>
+                                    <span>Assistive Tech</span>
+                                    <span>Health Monitoring</span>
+                                    <span>System Design</span>
                                 </div>
                             </div>
                         </div>
@@ -771,11 +764,11 @@
                                 <h3 class="cert-title">CODE CLASH</h3>
                                 <h4 class="cert-org">Speed Coding Competition</h4>
                                 <span class="cert-date">Participant</span>
-                                <p class="cert-text">Engaged in rapid coding duels focused on efficiency, debugging speed, and computational logic.</p>
+                                <p class="cert-text">Engineered a real-time anomaly detection solution analyzing device telemetry parameters to predict hardware degradation risks.</p>
                                 <div class="cert-skills">
-                                    <span>Speed Coding</span>
-                                    <span>Debugging</span>
-                                    <span>Efficiency</span>
+                                    <span>Anomaly Detection</span>
+                                    <span>Telemetry</span>
+                                    <span>Algorithms</span>
                                 </div>
                             </div>
                         </div>
@@ -908,6 +901,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Profile Picture Lightbox Modal (WhatsApp/Instagram style) -->
+    <div id="profile-modal" class="profile-modal" aria-hidden="true" role="dialog">
+        <div class="profile-modal-backdrop"></div>
+        <button class="profile-modal-close" aria-label="Close image"><i data-lucide="x"></i></button>
+        <div class="profile-modal-content">
+            <img src="profile.png" alt="Yeshrutha S" class="profile-modal-img">
+        </div>
+    </div>
 
     <!-- Custom JS -->
     <script src="script.js?v=1.1.5"></script>
