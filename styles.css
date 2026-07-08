@@ -459,25 +459,38 @@ button {
 }
 
 .hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: var(--text-primary);
     margin-bottom: 24px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-family: var(--font-title);
 }
 
 #typewriter {
-    color: var(--secondary-cyan);
-    font-weight: 700;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6));
+    display: inline-block;
 }
 
 .cursor {
-    color: var(--secondary-cyan);
-    animation: blink 0.7s infinite;
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: var(--secondary-cyan);
+    margin-left: 6px;
+    vertical-align: -0.1em;
+    animation: blink 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    box-shadow: 0 0 12px var(--secondary-cyan), 0 0 4px var(--secondary-cyan);
+    border-radius: 2px;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0; transform: scaleY(0.85); }
 }
 
 .hero-description {
