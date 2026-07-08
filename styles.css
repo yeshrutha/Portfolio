@@ -433,10 +433,19 @@ button {
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 4.5rem;
     line-height: 1.1;
     font-weight: 800;
     margin-bottom: 16px;
+}
+
+.hero-greeting {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
 .hero-title-block {
@@ -1843,6 +1852,11 @@ section {
         font-size: 3rem;
     }
     
+    .hero-greeting {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+    }
+    
     .about-card {
         padding: 24px;
     }
@@ -1891,6 +1905,11 @@ section {
 
     .hero-title {
         font-size: 2.4rem;
+    }
+
+    .hero-greeting {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
     }
 
     .hero-subtitle {
