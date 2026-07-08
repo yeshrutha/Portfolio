@@ -86,11 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. INTERACTIVE TYPEWRITER EFFECT
     const typewriterElement = document.getElementById('typewriter');
     const words = [
-        "AI/ML Engineering.",
-        "Computer Vision.",
-        "Predictive Modeling.",
-        "Secure Cryptography.",
-        "CI/CD Orchestration."
+        "an AI/ML Engineer.",
+        "a DevOps Engineer.",
+        "a Web Developer.",
+        "a Computer Engineer."
     ];
     let wordIndex = 0;
     let charIndex = 0;
