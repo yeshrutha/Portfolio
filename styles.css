@@ -2300,21 +2300,21 @@ section {
     visibility: hidden;
 }
 
-/* 16. COSMIC SPACE-WARP & PLANET ALIGNMENT PRELOADER */
+/* 16. SIMPLE PREMIUM LASER-SWEEP PRELOADER */
 .preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #020208; /* Deep cosmic dark */
+    background: #02020a;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), visibility 1.2s;
+    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
     overflow: hidden;
 }
 
@@ -2323,312 +2323,117 @@ section {
     visibility: hidden;
 }
 
-/* Pulsing Cosmic Nebula Background */
-.preloader-nebula {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(112, 66, 248, 0.15) 0%, rgba(0, 242, 254, 0.05) 45%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 1;
-    animation: space-nebula-pulse 10s ease-in-out infinite alternate;
-}
-
-@keyframes space-nebula-pulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    100% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
-}
-
-/* Moving Space Stars warp background */
-.preloader-stars-warp {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-        radial-gradient(circle at 75% 40%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
-        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-    background-size: 300px 300px;
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: 2;
-    animation: space-stars-drift 25s linear infinite;
-}
-
-@keyframes space-stars-drift {
-    from { background-position: 0 0; }
-    to { background-position: 300px 600px; }
-}
-
-.preloader-hud-space {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    height: 600px;
-    z-index: 3;
-}
-
-/* Cosmic Alignment System */
-.space-alignment-system {
-    position: absolute;
-    top: 80px;
-    width: 360px;
-    height: 360px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Singularity Core */
-.cosmic-singularity {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    z-index: 5;
-}
-
-.singularity-core {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 
-        0 0 20px 4px #ffffff, 
-        0 0 35px 8px rgba(0, 242, 254, 0.8), 
-        0 0 50px 15px rgba(112, 66, 248, 0.8);
-    animation: singularity-pulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes singularity-pulse {
-    0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 15px 3px #ffffff, 0 0 25px 6px rgba(0, 242, 254, 0.6), 0 0 40px 12px rgba(112, 66, 248, 0.6); }
-    100% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 25px 6px #ffffff, 0 0 40px 12px rgba(0, 242, 254, 0.9), 0 0 60px 20px rgba(112, 66, 248, 0.9); }
-}
-
-/* Orbits */
-.space-orbit {
-    position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    transition: border-color 1.2s ease, box-shadow 1.2s ease;
-}
-
-.orbit-1 {
-    width: 140px;
-    height: 140px;
-}
-
-.orbit-2 {
-    width: 240px;
-    height: 240px;
-}
-
-.orbit-3 {
-    width: 340px;
-    height: 340px;
-}
-
-/* Accretion Disk around Singularity */
-.singularity-disk {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top: 2px solid rgba(0, 242, 254, 0.5);
-    border-bottom: 2px solid rgba(112, 66, 248, 0.5);
-    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.7));
-    animation: singularity-disk-spin 3s linear infinite;
-    z-index: 4;
-}
-
-@keyframes singularity-disk-spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Planets */
-.planet {
-    position: absolute;
-    border-radius: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: background-color 1s ease, box-shadow 1s ease;
-}
-
-.planet-1 {
-    width: 8px;
-    height: 8px;
-    background: #00f2fe;
-    box-shadow: 0 0 10px #00f2fe;
-    top: -4px;
-}
-
-.planet-2 {
-    width: 12px;
-    height: 12px;
-    background: #7042f8;
-    box-shadow: 0 0 14px #7042f8;
-    top: -6px;
-}
-
-.planet-3 {
-    width: 10px;
-    height: 10px;
-    background: #ff007f;
-    box-shadow: 0 0 12px #ff007f;
-    top: -5px;
-}
-
-/* Aligned Planetary System Class triggers from JS */
-.space-alignment-system.aligned .space-orbit {
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.05);
-}
-
-.space-alignment-system.aligned .planet {
-    background: #ffffff;
-    box-shadow: 0 0 25px 6px #ffffff, 0 0 15px rgba(0, 242, 254, 0.8);
-}
-
-/* Vertical Beam of Alignment Connection */
-.space-alignment-system.aligned::after {
+/* Background cosmic grid */
+.preloader::before {
     content: '';
     position: absolute;
-    top: 10px;
-    left: calc(50% - 1px);
-    width: 2px;
-    height: 170px;
-    background: linear-gradient(180deg, #ffffff, #00f2fe 50%, #7042f8 90%, transparent);
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.8), 0 0 6px #ffffff;
-    transform-origin: bottom center;
-    animation: alignment-beam-in 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    z-index: 4;
-}
-
-@keyframes alignment-beam-in {
-    from { transform: scaleY(0); opacity: 0; }
-    to { transform: scaleY(1); opacity: 1; }
-}
-
-/* Content below orbits */
-.preloader-content-space {
-    margin-top: 410px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(112, 66, 248, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(112, 66, 248, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    pointer-events: none;
 }
 
-.preloader-name-space {
-    font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
-    font-size: 3.4rem;
-    font-weight: 800;
-    letter-spacing: 16px;
-    text-transform: uppercase;
-    margin: 0 0 28px;
-    color: #ffffff;
-    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-    opacity: 0;
-    transform: scale(0.96);
-    animation: space-name-reveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes space-name-reveal {
-    from { opacity: 0; transform: scale(0.96); letter-spacing: 24px; }
-    to { opacity: 1; transform: scale(1); letter-spacing: 16px; }
-}
-
-.progress-space-container {
+.preloader-content-simple {
+    text-align: center;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 25px;
+    padding: 20px;
 }
 
-.progress-percentage-space {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.25rem;
-    color: #00f2fe;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-}
-
-.progress-bar-space {
-    width: 280px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 4px;
-    overflow: hidden;
+.simple-text-wrapper {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: inline-block;
+    padding: 10px 0;
 }
 
-.progress-bar-glow-space {
-    height: 100%;
+.simple-name {
+    font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* Hollow Outline Base */
+.simple-name.outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Solid Gradient Fill Overlay */
+.simple-name.fill {
+    position: absolute;
+    top: 10px;
+    left: 0;
     width: 0%;
-    background: linear-gradient(90deg, #7042f8, #00f2fe);
-    box-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+    color: transparent;
+    background: linear-gradient(90deg, #7042f8, #00f2fe, #7042f8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px transparent;
+    overflow: hidden;
     transition: width 0.08s ease-out;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.15));
 }
 
-/* Responsiveness */
+/* Sweeping Vertical Laser Bar */
+.laser-bar {
+    position: absolute;
+    top: 5px;
+    left: 0%;
+    width: 3px;
+    height: calc(100% - 10px);
+    background: linear-gradient(180deg, transparent, #00f2fe 30%, #7042f8 70%, transparent);
+    box-shadow: 
+        0 0 10px rgba(0, 242, 254, 0.8),
+        0 0 20px rgba(112, 66, 248, 0.8);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: left 0.08s ease-out, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.simple-progress {
+    margin-top: 5px;
+}
+
+.simple-percentage {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #00f2fe;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .space-alignment-system {
-        top: 60px;
-        transform: scale(0.85);
-    }
-    .preloader-content-space {
-        margin-top: 360px;
-    }
-    .preloader-name-space {
-        font-size: 2.3rem;
+    .simple-name {
+        font-size: 2.6rem;
         letter-spacing: 8px;
-    }
-    .space-telemetry {
-        font-size: 0.65rem;
-        gap: 12px;
-    }
-    .progress-bar-space {
-        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .space-alignment-system {
-        top: 40px;
-        transform: scale(0.68);
-    }
-    .preloader-content-space {
-        margin-top: 300px;
-    }
-    .preloader-name-space {
-        font-size: 1.7rem;
+    .simple-name {
+        font-size: 1.75rem;
         letter-spacing: 5px;
     }
-    .progress-bar-space {
-        width: 170px;
+    .simple-percentage {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
     }
 }

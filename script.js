@@ -5,60 +5,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     
-    // 0. COSMIC SPACE PRELOADER CONTROLLER
+    // 0. SIMPLE PREMIUM LASER-SWEEP PRELOADER CONTROLLER
     const preloader = document.getElementById('preloader');
-    const percentageEl = document.querySelector('.progress-percentage-space');
-    const progressBarGlow = document.querySelector('.progress-bar-glow-space');
-    const alignmentSystem = document.querySelector('.space-alignment-system');
-    
-    // Live JavaScript-controlled planet angles
-    let angle1 = 120; // Staggered initial offsets
-    let angle2 = 240;
-    let angle3 = 45;
-    
-    const speed1 = 2.2;
-    const speed2 = -1.6;
-    const speed3 = 1.0;
-    
-    let isAligning = false;
-    let target1 = 0;
-    let target2 = 0;
-    let target3 = 0;
-    
-    function animateOrbits() {
-        if (!isAligning) {
-            angle1 += speed1;
-            angle2 += speed2;
-            angle3 += speed3;
-            
-            // Limit angles
-            angle1 %= 360;
-            angle2 %= 360;
-            angle3 %= 360;
-        } else {
-            // Eases smoothly towards the nearest vertical target using linear interpolation (LERP)
-            angle1 += (target1 - angle1) * 0.05;
-            angle2 += (target2 - angle2) * 0.05;
-            angle3 += (target3 - angle3) * 0.05;
-        }
-        
-        const orbit1 = document.querySelector('.orbit-1');
-        const orbit2 = document.querySelector('.orbit-2');
-        const orbit3 = document.querySelector('.orbit-3');
-        
-        if (orbit1) orbit1.style.transform = `rotate(${angle1}deg)`;
-        if (orbit2) orbit2.style.transform = `rotate(${angle2}deg)`;
-        if (orbit3) orbit3.style.transform = `rotate(${angle3}deg)`;
-        
-        requestAnimationFrame(animateOrbits);
-    }
+    const fillName = document.getElementById('fill-name');
+    const laserBar = document.getElementById('laser-bar');
+    const simplePercentage = document.getElementById('simple-percentage');
     
     if (preloader) {
-        // Start the physics animation loops
-        requestAnimationFrame(animateOrbits);
-        
         // Lock body scrolling during preloading
         document.body.style.overflow = 'hidden';
+        
+        // Show laser sweep bar
+        if (laserBar) laserBar.style.opacity = '1';
         
         let count = 0;
         const countInterval = setInterval(() => {
@@ -68,33 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 count = 100;
                 clearInterval(countInterval);
                 
-                // Set targets to nearest multiple of 360 so planets decelerate to shortest top vertical alignment
-                target1 = Math.round(angle1 / 360) * 360;
-                target2 = Math.round(angle2 / 360) * 360;
-                target3 = Math.round(angle3 / 360) * 360;
-                isAligning = true;
+                // Fade out laser bar at the end
+                if (laserBar) laserBar.style.opacity = '0';
                 
-                // Wait for the planets to start aligning before connecting the neon beam
-                setTimeout(() => {
-                    if (alignmentSystem) {
-                        alignmentSystem.classList.add('aligned');
-                    }
-                }, 400);
-                
-                // Smooth fade out preloader after alignment sequence completes
+                // Smooth fade out preloader and unlock scrolling
                 setTimeout(() => {
                     preloader.classList.add('fade-out');
                     document.body.style.overflow = '';
-                }, 2600); // 2.6s total time is perfect for the LERP alignment to display fully
+                }, 500);
             }
             
-            if (percentageEl) {
-                percentageEl.textContent = `${count.toString().padStart(2, '0')}%`;
+            if (simplePercentage) {
+                simplePercentage.textContent = `${count}%`;
             }
-            if (progressBarGlow) {
-                progressBarGlow.style.width = `${count}%`;
+            if (fillName) {
+                fillName.style.width = `${count}%`;
             }
-        }, 90);
+            if (laserBar) {
+                laserBar.style.left = `${count}%`;
+            }
+        }, 80);
     }
 
     // Initialize Lucide Icons
