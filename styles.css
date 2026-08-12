@@ -2421,39 +2421,50 @@ section {
 /* Orbits */
 .space-orbit {
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
+    transition: border-color 1.2s ease, box-shadow 1.2s ease;
 }
 
 .orbit-1 {
     width: 140px;
     height: 140px;
-    animation: space-orbit-spin-cw 7s linear infinite;
 }
 
 .orbit-2 {
     width: 240px;
     height: 240px;
-    animation: space-orbit-spin-ccw 11s linear infinite;
 }
 
 .orbit-3 {
     width: 340px;
     height: 340px;
-    animation: space-orbit-spin-cw 16s linear infinite;
 }
 
-@keyframes space-orbit-spin-cw {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Accretion Disk around Singularity */
+.singularity-disk {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(0, 242, 254, 0.5);
+    border-bottom: 2px solid rgba(112, 66, 248, 0.5);
+    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.7));
+    animation: singularity-disk-spin 3s linear infinite;
+    z-index: 4;
 }
 
-@keyframes space-orbit-spin-ccw {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
+@keyframes singularity-disk-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Planets */
@@ -2462,6 +2473,7 @@ section {
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
+    transition: background-color 1s ease, box-shadow 1s ease;
 }
 
 .planet-1 {
@@ -2488,30 +2500,29 @@ section {
     top: -5px;
 }
 
-/* Aligned Planetary System */
+/* Aligned Planetary System Class triggers from JS */
 .space-alignment-system.aligned .space-orbit {
-    animation-play-state: paused !important;
-    transform: rotate(0deg) !important;
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.05);
 }
 
 .space-alignment-system.aligned .planet {
     background: #ffffff;
     box-shadow: 0 0 25px 6px #ffffff, 0 0 15px rgba(0, 242, 254, 0.8);
-    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Beam of Alignment Connection */
+/* Vertical Beam of Alignment Connection */
 .space-alignment-system.aligned::after {
     content: '';
     position: absolute;
-    top: -40px;
-    bottom: -40px;
+    top: 10px;
+    left: calc(50% - 1px);
     width: 2px;
-    background: linear-gradient(180deg, transparent, #ffffff 15%, #00f2fe 50%, #7042f8 85%, transparent);
-    box-shadow: 0 0 18px rgba(0, 242, 254, 0.8), 0 0 6px #ffffff;
-    animation: alignment-beam-in 0.8s ease-out forwards;
+    height: 170px;
+    background: linear-gradient(180deg, #ffffff, #00f2fe 50%, #7042f8 90%, transparent);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.8), 0 0 6px #ffffff;
+    transform-origin: bottom center;
+    animation: alignment-beam-in 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     z-index: 4;
 }
 
@@ -2529,32 +2540,24 @@ section {
     width: 100%;
 }
 
-.space-telemetry {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.72rem;
-    color: rgba(0, 242, 254, 0.65);
-    margin-bottom: 22px;
-    letter-spacing: 2px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
 .preloader-name-space {
     font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
     font-size: 3.4rem;
     font-weight: 800;
-    letter-spacing: 12px;
+    letter-spacing: 16px;
     text-transform: uppercase;
     margin: 0 0 28px;
     color: #ffffff;
     text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-    animation: space-text-pulsing 3s ease-in-out infinite alternate;
+    opacity: 0;
+    transform: scale(0.96);
+    animation: space-name-reveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
 }
 
-@keyframes space-text-pulsing {
-    0% { text-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
-    100% { text-shadow: 0 0 30px rgba(112, 66, 248, 0.6); }
+@keyframes space-name-reveal {
+    from { opacity: 0; transform: scale(0.96); letter-spacing: 24px; }
+    to { opacity: 1; transform: scale(1); letter-spacing: 16px; }
 }
 
 .progress-space-container {

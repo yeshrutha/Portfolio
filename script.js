@@ -10,37 +10,82 @@ document.addEventListener('DOMContentLoaded', () => {
     const percentageEl = document.querySelector('.progress-percentage-space');
     const progressBarGlow = document.querySelector('.progress-bar-glow-space');
     const alignmentSystem = document.querySelector('.space-alignment-system');
-    const coordsEl = document.getElementById('telemetry-coords');
+    
+    // Live JavaScript-controlled planet angles
+    let angle1 = 120; // Staggered initial offsets
+    let angle2 = 240;
+    let angle3 = 45;
+    
+    const speed1 = 2.2;
+    const speed2 = -1.6;
+    const speed3 = 1.0;
+    
+    let isAligning = false;
+    let target1 = 0;
+    let target2 = 0;
+    let target3 = 0;
+    
+    function animateOrbits() {
+        if (!isAligning) {
+            angle1 += speed1;
+            angle2 += speed2;
+            angle3 += speed3;
+            
+            // Limit angles
+            angle1 %= 360;
+            angle2 %= 360;
+            angle3 %= 360;
+        } else {
+            // Eases smoothly towards the nearest vertical target using linear interpolation (LERP)
+            angle1 += (target1 - angle1) * 0.05;
+            angle2 += (target2 - angle2) * 0.05;
+            angle3 += (target3 - angle3) * 0.05;
+        }
+        
+        const orbit1 = document.querySelector('.orbit-1');
+        const orbit2 = document.querySelector('.orbit-2');
+        const orbit3 = document.querySelector('.orbit-3');
+        
+        if (orbit1) orbit1.style.transform = `rotate(${angle1}deg)`;
+        if (orbit2) orbit2.style.transform = `rotate(${angle2}deg)`;
+        if (orbit3) orbit3.style.transform = `rotate(${angle3}deg)`;
+        
+        requestAnimationFrame(animateOrbits);
+    }
     
     if (preloader) {
+        // Start the physics animation loops
+        requestAnimationFrame(animateOrbits);
+        
         // Lock body scrolling during preloading
         document.body.style.overflow = 'hidden';
         
         let count = 0;
         const countInterval = setInterval(() => {
-            count += Math.floor(Math.random() * 6) + 3; // Cosmic charging speed
+            count += Math.floor(Math.random() * 4) + 2; // Smooth and luxury charge rate
             
             if (count >= 100) {
                 count = 100;
                 clearInterval(countInterval);
                 
-                // 1. Snap planets into vertical alignment
-                if (alignmentSystem) {
-                    alignmentSystem.classList.add('aligned');
-                }
+                // Set targets to nearest multiple of 360 so planets decelerate to shortest top vertical alignment
+                target1 = Math.round(angle1 / 360) * 360;
+                target2 = Math.round(angle2 / 360) * 360;
+                target3 = Math.round(angle3 / 360) * 360;
+                isAligning = true;
                 
-                // 2. Lock telemetry coordinates
-                if (coordsEl) {
-                    coordsEl.textContent = "COORDS: LOCKED // WARP_JUMP";
-                    coordsEl.style.color = "#ffffff";
-                    coordsEl.style.textShadow = "0 0 10px #00f2fe, 0 0 20px #7042f8";
-                }
+                // Wait for the planets to start aligning before connecting the neon beam
+                setTimeout(() => {
+                    if (alignmentSystem) {
+                        alignmentSystem.classList.add('aligned');
+                    }
+                }, 400);
                 
-                // 3. Fade out preloader after alignment sequence completes
+                // Smooth fade out preloader after alignment sequence completes
                 setTimeout(() => {
                     preloader.classList.add('fade-out');
                     document.body.style.overflow = '';
-                }, 1600); // 1.6s lets alignment and beam flash play out beautifully
+                }, 2600); // 2.6s total time is perfect for the LERP alignment to display fully
             }
             
             if (percentageEl) {
@@ -49,15 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progressBarGlow) {
                 progressBarGlow.style.width = `${count}%`;
             }
-            
-            // Randomize telemetry coordinates dynamically while charging
-            if (count < 100 && coordsEl) {
-                const raH = Math.floor(Math.random() * 24).toString().padStart(2, '0');
-                const raM = Math.floor(Math.random() * 60).toString().padStart(2, '0');
-                const dec = Math.floor(Math.random() * 180) - 90;
-                coordsEl.textContent = `COORDS: RA ${raH}h ${raM}m / DEC ${dec >= 0 ? '+' : ''}${dec}°`;
-            }
-        }, 60);
+        }, 90);
     }
 
     // Initialize Lucide Icons
