@@ -2300,21 +2300,21 @@ section {
     visibility: hidden;
 }
 
-/* 16. CYBERNETIC HUD VECTOR PRELOADER */
+/* 16. COSMIC SPACE-WARP & PLANET ALIGNMENT PRELOADER */
 .preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #02020a;
+    background: #020208; /* Deep cosmic dark */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+    transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), visibility 1.2s;
     overflow: hidden;
 }
 
@@ -2323,182 +2323,267 @@ section {
     visibility: hidden;
 }
 
-/* Background grid effect in preloader */
-.preloader::before {
-    content: '';
+/* Pulsing Cosmic Nebula Background */
+.preloader-nebula {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(112, 66, 248, 0.15) 0%, rgba(0, 242, 254, 0.05) 45%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 1;
+    animation: space-nebula-pulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes space-nebula-pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
+}
+
+/* Moving Space Stars warp background */
+.preloader-stars-warp {
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(112, 66, 248, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(112, 66, 248, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: center;
+    top: 0;
+    left: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 75% 40%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 300px 300px;
+    opacity: 0.4;
     pointer-events: none;
+    z-index: 2;
+    animation: space-stars-drift 25s linear infinite;
 }
 
-.preloader-hud {
+@keyframes space-stars-drift {
+    from { background-position: 0 0; }
+    to { background-position: 300px 600px; }
+}
+
+.preloader-hud-space {
     position: relative;
-    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
     height: 600px;
+    z-index: 3;
+}
+
+/* Cosmic Alignment System */
+.space-alignment-system {
+    position: absolute;
+    top: 80px;
+    width: 360px;
+    height: 360px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Rotating Outer Ring */
-.hud-ring-outer {
+/* Singularity Core */
+.cosmic-singularity {
     position: absolute;
-    width: 520px;
-    height: 520px;
-    border: 1px dashed rgba(112, 66, 248, 0.25);
-    border-radius: 50%;
-    animation: hud-rotate-clockwise 20s linear infinite;
-    pointer-events: none;
+    width: 30px;
+    height: 30px;
+    z-index: 5;
 }
 
-/* Rotating Inner Ring */
-.hud-ring-inner {
+.singularity-core {
     position: absolute;
-    width: 460px;
-    height: 460px;
-    border: 1px solid rgba(0, 242, 254, 0.1);
-    border-top: 2px solid rgba(0, 242, 254, 0.3);
-    border-bottom: 2px solid rgba(112, 66, 248, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
     border-radius: 50%;
-    animation: hud-rotate-counter 12s linear infinite;
-    pointer-events: none;
+    box-shadow: 
+        0 0 20px 4px #ffffff, 
+        0 0 35px 8px rgba(0, 242, 254, 0.8), 
+        0 0 50px 15px rgba(112, 66, 248, 0.8);
+    animation: singularity-pulse 2s ease-in-out infinite alternate;
 }
 
-/* Conic Scan Sweeper */
-.hud-scanner {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: conic-gradient(from 0deg at 50% 50%, rgba(112, 66, 248, 0.08) 0deg, rgba(0, 242, 254, 0) 180deg);
-    border-radius: 50%;
-    animation: hud-rotate-clockwise 4s linear infinite;
-    pointer-events: none;
+@keyframes singularity-pulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 15px 3px #ffffff, 0 0 25px 6px rgba(0, 242, 254, 0.6), 0 0 40px 12px rgba(112, 66, 248, 0.6); }
+    100% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 25px 6px #ffffff, 0 0 40px 12px rgba(0, 242, 254, 0.9), 0 0 60px 20px rgba(112, 66, 248, 0.9); }
 }
 
-.preloader-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
+/* Orbits */
+.space-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-1 {
+    width: 140px;
+    height: 140px;
+    animation: space-orbit-spin-cw 7s linear infinite;
+}
+
+.orbit-2 {
+    width: 240px;
+    height: 240px;
+    animation: space-orbit-spin-ccw 11s linear infinite;
+}
+
+.orbit-3 {
+    width: 340px;
+    height: 340px;
+    animation: space-orbit-spin-cw 16s linear infinite;
+}
+
+@keyframes space-orbit-spin-cw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes space-orbit-spin-ccw {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+/* Planets */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.planet-1 {
+    width: 8px;
+    height: 8px;
+    background: #00f2fe;
+    box-shadow: 0 0 10px #00f2fe;
+    top: -4px;
+}
+
+.planet-2 {
+    width: 12px;
+    height: 12px;
+    background: #7042f8;
+    box-shadow: 0 0 14px #7042f8;
+    top: -6px;
+}
+
+.planet-3 {
+    width: 10px;
+    height: 10px;
+    background: #ff007f;
+    box-shadow: 0 0 12px #ff007f;
+    top: -5px;
+}
+
+/* Aligned Planetary System */
+.space-alignment-system.aligned .space-orbit {
+    animation-play-state: paused !important;
+    transform: rotate(0deg) !important;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.space-alignment-system.aligned .planet {
+    background: #ffffff;
+    box-shadow: 0 0 25px 6px #ffffff, 0 0 15px rgba(0, 242, 254, 0.8);
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Beam of Alignment Connection */
+.space-alignment-system.aligned::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    bottom: -40px;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, #ffffff 15%, #00f2fe 50%, #7042f8 85%, transparent);
+    box-shadow: 0 0 18px rgba(0, 242, 254, 0.8), 0 0 6px #ffffff;
+    animation: alignment-beam-in 0.8s ease-out forwards;
+    z-index: 4;
+}
+
+@keyframes alignment-beam-in {
+    from { transform: scaleY(0); opacity: 0; }
+    to { transform: scaleY(1); opacity: 1; }
+}
+
+/* Content below orbits */
+.preloader-content-space {
+    margin-top: 410px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
 }
 
-/* Diagnostic Logs */
-.terminal-logs {
+.space-telemetry {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.72rem;
-    color: #00f2fe;
-    opacity: 0.6;
-    margin-bottom: 28px;
+    color: rgba(0, 242, 254, 0.65);
+    margin-bottom: 22px;
     letter-spacing: 2px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    min-height: 45px;
+    justify-content: center;
+    gap: 20px;
 }
 
-.log-line {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 1.5px solid transparent;
-    opacity: 0;
-    animation: log-type-reveal 0.4s steps(30, end) forwards;
-}
-
-.log-line:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.log-line:nth-child(2) {
-    animation-delay: 0.7s;
-}
-
-.log-line:nth-child(3) {
-    animation-delay: 1.3s;
-}
-
-@keyframes log-type-reveal {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-/* Futuristic Name Animation */
-.preloader-name-modern {
+.preloader-name-space {
     font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
-    font-size: 3.6rem;
-    font-weight: 900;
+    font-size: 3.4rem;
+    font-weight: 800;
     letter-spacing: 12px;
     text-transform: uppercase;
-    margin: 0 0 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 0 28px;
     color: #ffffff;
-    text-shadow: 0 0 25px rgba(112, 66, 248, 0.4);
-    user-select: none;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    animation: space-text-pulsing 3s ease-in-out infinite alternate;
 }
 
-.preloader-name-modern .char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(15px) scale(0.85);
-    animation: char-hud-reveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    animation-delay: calc(var(--i) * 0.08s + 0.5s);
+@keyframes space-text-pulsing {
+    0% { text-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+    100% { text-shadow: 0 0 30px rgba(112, 66, 248, 0.6); }
 }
 
-@keyframes char-hud-reveal {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Progress HUD styles */
-.progress-hud-container {
+.progress-space-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 }
 
-.progress-percentage {
+.progress-percentage-space {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: #00f2fe;
     font-weight: 700;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
 }
 
-.progress-bar-hud {
+.progress-bar-space {
     width: 280px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.progress-bar-glow {
+.progress-bar-glow-space {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #7042f8, #00f2fe);
@@ -2506,54 +2591,41 @@ section {
     transition: width 0.08s ease-out;
 }
 
-/* Keyframe Rotations */
-@keyframes hud-rotate-clockwise {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes hud-rotate-counter {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
-    .preloader-hud {
-        width: 100vw;
-        height: 100vw;
+    .space-alignment-system {
+        top: 60px;
+        transform: scale(0.85);
     }
-    .hud-ring-outer {
-        width: 90vw;
-        height: 90vw;
+    .preloader-content-space {
+        margin-top: 360px;
     }
-    .hud-ring-inner {
-        width: 80vw;
-        height: 80vw;
-    }
-    .hud-scanner {
-        width: 70vw;
-        height: 70vw;
-    }
-    .preloader-name-modern {
-        font-size: 2.4rem;
+    .preloader-name-space {
+        font-size: 2.3rem;
         letter-spacing: 8px;
     }
-    .progress-bar-hud {
+    .space-telemetry {
+        font-size: 0.65rem;
+        gap: 12px;
+    }
+    .progress-bar-space {
         width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .preloader-name-modern {
-        font-size: 1.8rem;
+    .space-alignment-system {
+        top: 40px;
+        transform: scale(0.68);
+    }
+    .preloader-content-space {
+        margin-top: 300px;
+    }
+    .preloader-name-space {
+        font-size: 1.7rem;
         letter-spacing: 5px;
     }
-    .progress-bar-hud {
-        width: 180px;
-    }
-    .terminal-logs {
-        font-size: 0.65rem;
-        letter-spacing: 1px;
+    .progress-bar-space {
+        width: 170px;
     }
 }

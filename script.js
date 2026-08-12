@@ -5,10 +5,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     
-    // 0. CYBERNETIC HUD PRELOADER CONTROLLER
+    // 0. COSMIC SPACE PRELOADER CONTROLLER
     const preloader = document.getElementById('preloader');
-    const percentageEl = document.querySelector('.progress-percentage');
-    const progressBarGlow = document.querySelector('.progress-bar-glow');
+    const percentageEl = document.querySelector('.progress-percentage-space');
+    const progressBarGlow = document.querySelector('.progress-bar-glow-space');
+    const alignmentSystem = document.querySelector('.space-alignment-system');
+    const coordsEl = document.getElementById('telemetry-coords');
     
     if (preloader) {
         // Lock body scrolling during preloading
@@ -16,18 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let count = 0;
         const countInterval = setInterval(() => {
-            // Increments values randomly to simulate realistic tech boot sequence
-            count += Math.floor(Math.random() * 8) + 4;
+            count += Math.floor(Math.random() * 6) + 3; // Cosmic charging speed
             
             if (count >= 100) {
                 count = 100;
                 clearInterval(countInterval);
                 
-                // Leave a tiny gap to let the user see the 100% completion state
+                // 1. Snap planets into vertical alignment
+                if (alignmentSystem) {
+                    alignmentSystem.classList.add('aligned');
+                }
+                
+                // 2. Lock telemetry coordinates
+                if (coordsEl) {
+                    coordsEl.textContent = "COORDS: LOCKED // WARP_JUMP";
+                    coordsEl.style.color = "#ffffff";
+                    coordsEl.style.textShadow = "0 0 10px #00f2fe, 0 0 20px #7042f8";
+                }
+                
+                // 3. Fade out preloader after alignment sequence completes
                 setTimeout(() => {
                     preloader.classList.add('fade-out');
                     document.body.style.overflow = '';
-                }, 400);
+                }, 1600); // 1.6s lets alignment and beam flash play out beautifully
             }
             
             if (percentageEl) {
@@ -36,7 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progressBarGlow) {
                 progressBarGlow.style.width = `${count}%`;
             }
-        }, 80);
+            
+            // Randomize telemetry coordinates dynamically while charging
+            if (count < 100 && coordsEl) {
+                const raH = Math.floor(Math.random() * 24).toString().padStart(2, '0');
+                const raM = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+                const dec = Math.floor(Math.random() * 180) - 90;
+                coordsEl.textContent = `COORDS: RA ${raH}h ${raM}m / DEC ${dec >= 0 ? '+' : ''}${dec}°`;
+            }
+        }, 60);
     }
 
     // Initialize Lucide Icons
