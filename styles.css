@@ -2370,8 +2370,7 @@ section {
 /* Hollow Outline Base */
 .simple-name.outline {
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(0, 242, 254, 0.25);
-    text-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Solid Gradient Fill Overlay */
@@ -2381,13 +2380,13 @@ section {
     left: 0;
     width: 0%;
     color: transparent;
-    background: linear-gradient(90deg, #00f2fe, #7042f8, #00f2fe);
+    background: linear-gradient(90deg, #7042f8, #00f2fe, #7042f8);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-stroke: 1px transparent;
     overflow: hidden;
     transition: width 0.08s ease-out;
-    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.7)) drop-shadow(0 0 20px rgba(112, 66, 248, 0.5));
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.15));
 }
 
 /* Sweeping Vertical Laser Bar */
