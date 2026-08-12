@@ -748,9 +748,69 @@ document.addEventListener('DOMContentLoaded', () => {
         firstElements.forEach(el => el.classList.add('revealed'));
     }, 100);
 
-    // 9.5 PROJECTS SHOWCASE DOMAIN FILTERING
+    // 9.5 PROJECTS SHOWCASE DOMAIN FILTERING & VIEW MORE CONTROL
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-cosmic-card');
+    const viewMoreBtn = document.getElementById('projects-view-more-btn');
+    let isProjectsExpanded = false;
+    const INITIAL_PROJECT_LIMIT = 6;
+
+    function updateProjectsVisibility() {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        const filterValue = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+        let matchCount = 0;
+
+        projectCards.forEach(card => {
+            const isMatch = filterValue === 'all' || card.getAttribute('data-domain') === filterValue;
+            
+            if (isMatch) {
+                card.classList.remove('filtered-out');
+                
+                // If not expanded, hide projects beyond the limit
+                if (!isProjectsExpanded && matchCount >= INITIAL_PROJECT_LIMIT) {
+                    card.classList.add('hidden-by-limit');
+                    card.classList.remove('revealed');
+                } else {
+                    card.classList.remove('hidden-by-limit');
+                    card.classList.add('revealed');
+                }
+                matchCount++;
+            } else {
+                card.classList.add('filtered-out');
+                card.classList.remove('revealed');
+                card.classList.remove('hidden-by-limit');
+            }
+        });
+
+        // Show/hide view more button based on matching projects count
+        if (viewMoreBtn) {
+            const viewMoreBtnContainer = viewMoreBtn.parentElement;
+            if (matchCount > INITIAL_PROJECT_LIMIT) {
+                if (viewMoreBtnContainer) viewMoreBtnContainer.style.display = 'flex';
+                
+                // Update button text and icon
+                const btnText = viewMoreBtn.querySelector('span');
+                const btnIcon = viewMoreBtn.querySelector('i');
+                if (isProjectsExpanded) {
+                    if (btnText) btnText.textContent = 'View Less';
+                    if (btnIcon) {
+                        btnIcon.setAttribute('data-lucide', 'chevron-up');
+                    }
+                } else {
+                    if (btnText) btnText.textContent = 'View More';
+                    if (btnIcon) {
+                        btnIcon.setAttribute('data-lucide', 'chevron-down');
+                    }
+                }
+                // Re-run lucide to update icons if window.lucide is available
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            } else {
+                if (viewMoreBtnContainer) viewMoreBtnContainer.style.display = 'none';
+            }
+        }
+    }
 
     if (filterButtons.length > 0 && projectCards.length > 0) {
         filterButtons.forEach(btn => {
@@ -760,21 +820,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add active class to clicked button
                 btn.classList.add('active');
 
-                const filterValue = btn.getAttribute('data-filter');
+                // Reset expansion status when switching filters to keep layout clean
+                isProjectsExpanded = false;
 
-                projectCards.forEach(card => {
-                    const isMatch = filterValue === 'all' || card.getAttribute('data-domain') === filterValue;
-                    if (isMatch) {
-                        card.classList.remove('filtered-out');
-                        // Fade/slide in smoothly
-                        card.classList.add('revealed');
-                    } else {
-                        card.classList.add('filtered-out');
-                        card.classList.remove('revealed');
-                    }
-                });
+                updateProjectsVisibility();
             });
         });
+
+        if (viewMoreBtn) {
+            viewMoreBtn.addEventListener('click', () => {
+                isProjectsExpanded = !isProjectsExpanded;
+                updateProjectsVisibility();
+                
+                // Smooth scroll back to top of projects if collapsing
+                if (!isProjectsExpanded) {
+                    const projectsSection = document.getElementById('projects');
+                    if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+
+        // Initialize visibility on load
+        updateProjectsVisibility();
     }
 
     // 10. INTERACTIVE 3D SPACE CONSTELLATION ANIMATION (SKILLS SECTION)

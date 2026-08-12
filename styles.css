@@ -1372,6 +1372,12 @@ section {
     line-height: 1.5;
     margin-bottom: 20px;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.5em; /* 3 lines * 1.5 line-height = 4.5em */
 }
 
 .project-tags-list {
@@ -2269,4 +2275,27 @@ section {
     box-shadow: 0 20px 50px rgba(112, 66, 248, 0.3);
     object-fit: contain;
     background: var(--bg-dark);
+}
+
+/* 15. PROJECTS LIMIT & VIEW MORE BUTTON */
+.projects-view-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.project-cosmic-card.hidden-by-limit {
+    opacity: 0 !important;
+    transform: scale(0.8) translateY(20px) !important;
+    pointer-events: none;
+    position: absolute;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden;
+    visibility: hidden;
 }
