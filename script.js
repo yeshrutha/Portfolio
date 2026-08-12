@@ -5,17 +5,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     
-    // 0. COSMIC TEXT-FILL PRELOADER CONTROLLER
+    // 0. CYBERNETIC HUD PRELOADER CONTROLLER
     const preloader = document.getElementById('preloader');
+    const percentageEl = document.querySelector('.progress-percentage');
+    const progressBarGlow = document.querySelector('.progress-bar-glow');
+    
     if (preloader) {
         // Lock body scrolling during preloading
         document.body.style.overflow = 'hidden';
         
-        // Wait for fill animation to finish, then fade out and unlock scroll
-        setTimeout(() => {
-            preloader.classList.add('fade-out');
-            document.body.style.overflow = '';
-        }, 2500); // 2.5s matching text-fill & line-fill load animation durations
+        let count = 0;
+        const countInterval = setInterval(() => {
+            // Increments values randomly to simulate realistic tech boot sequence
+            count += Math.floor(Math.random() * 8) + 4;
+            
+            if (count >= 100) {
+                count = 100;
+                clearInterval(countInterval);
+                
+                // Leave a tiny gap to let the user see the 100% completion state
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+            
+            if (percentageEl) {
+                percentageEl.textContent = `${count.toString().padStart(2, '0')}%`;
+            }
+            if (progressBarGlow) {
+                progressBarGlow.style.width = `${count}%`;
+            }
+        }, 80);
     }
 
     // Initialize Lucide Icons
