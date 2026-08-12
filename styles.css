@@ -2356,10 +2356,10 @@ section {
 }
 
 .simple-name {
-    font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
-    font-size: 3.8rem;
-    font-weight: 800;
-    letter-spacing: 14px;
+    font-family: 'Orbitron', 'Outfit', 'Inter', sans-serif;
+    font-size: 3.6rem;
+    font-weight: 900;
+    letter-spacing: 12px;
     text-transform: uppercase;
     margin: 0;
     line-height: 1.2;
