@@ -2299,3 +2299,123 @@ section {
     overflow: hidden;
     visibility: hidden;
 }
+
+/* 16. COSMIC TEXT-FILL PRELOADER */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #03001e; /* Cosmic dark background matching the starfield */
+    background: linear-gradient(135deg, #03001e 0%, #050515 50%, #0a0028 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Ensure it covers everything, even overlays */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
+
+.preloader-name {
+    font-family: 'Outfit', 'Orbitron', 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    position: relative;
+    color: rgba(255, 255, 255, 0.03); /* hollow outline effect */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    margin: 0;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.preloader-name::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    color: transparent;
+    background: linear-gradient(90deg, #7042f8, #00f2fe, #7042f8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px transparent;
+    animation: text-fill-load 2.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes text-fill-load {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.preloader-line {
+    width: 200px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 24px auto 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #7042f8, #00f2fe);
+    animation: line-fill-load 2.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+@keyframes line-fill-load {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .preloader-name {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+    .preloader-line {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .preloader-name {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+    .preloader-line {
+        width: 120px;
+    }
+}

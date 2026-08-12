@@ -4,6 +4,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
+    
+    // 0. COSMIC TEXT-FILL PRELOADER CONTROLLER
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Lock body scrolling during preloading
+        document.body.style.overflow = 'hidden';
+        
+        // Wait for fill animation to finish, then fade out and unlock scroll
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            document.body.style.overflow = '';
+        }, 2500); // 2.5s matching text-fill & line-fill load animation durations
+    }
+
     // Initialize Lucide Icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
